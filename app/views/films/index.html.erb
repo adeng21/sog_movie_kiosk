@@ -1,0 +1,16 @@
+<div id='film-table'>
+
+  <h1 id="movie-header" class="text-center"> Welcome to the Society of Grownups Movie Kiosk!</h1>
+
+  <div id="movie-table">
+    <%= render 'film_table', films: @films%>
+  </div>
+
+  <h3 class="text-center">View Movies by:</h3>
+  <div class="text-center">
+    <span><%= link_to 'Title', root_path(order: 'title'), remote: true, class: "btn btn-primary"%></span>
+    <span><%= link_to 'Genre', root_path(order: 'genre'), remote: true, class: "btn btn-success"%></span>
+    <span><%= link_to 'Rating', root_path(order: 'rating'), remote: true, class: "btn btn-danger"%></span>
+    <span><%= link_to 'Availability', root_path(order: 'available'), remote: true, class: "btn btn-info"%></span>
+  </div>
+</div>

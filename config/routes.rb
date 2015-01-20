@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  root "films#index"
+  resources :films do
+    member do
+      post :create_film_checkout
+      patch :return_film
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

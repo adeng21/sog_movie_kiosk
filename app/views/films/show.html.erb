@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='col-xs-4'>
+    <div class='margin-top'><%= image_tag @film.image_path%></div>
+    <div class='margin-top'><%= link_to 'Go Back', root_path, class: 'btn btn-danger'%></div>
+  </div>
+  <div class='col-xs-8'>
+    <h1><%= @film.title%></h1>
+    <h4 class='margin-top'>Description:</h3>
+    <p><%=@film.description%></p>
+    <h4 class='margin-top'>This Film is Currently:
+      <% if @film.available?%>
+      <span class="btn btn-success" id="available">Available For Rent</span>
+      <div class='margin-top' id="checkout-form">
+        <%= render 'checkout_form', film_checkout: @film_checkout %>
+      </div>
+      <%else%>
+      <span class="btn btn-danger" id="checked-out">Checked Out</span>
+        <%= render 'return_form', film_checkout: @film_checkout%>
+      <%end%>
+    </h4>
+    <div class='margin-top'>
+      <%unless @checkout_history.blank?%>
+        <%= render 'checkout_history_table', checkout_history: @checkout_history%>
+      <%end%>
+    </div>
+  </div>
+</div>
+

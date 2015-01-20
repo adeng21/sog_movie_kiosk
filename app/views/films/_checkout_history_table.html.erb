@@ -1,0 +1,18 @@
+<h3> Checkout History </h3>
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead>
+    <th>Renter</th>
+    <th>Checkout Date</th>
+    <th>Return Date</th>
+  </thead>
+
+  <tbody>
+  <%checkout_history.each do |ch|%>
+    <tr>
+      <td><%= ch.user.full_name%></td>
+      <td><%= ch.checkout_time.strftime('%b %e, %l:%M %p')%></td>
+      <td><%= ch.return_time.nil? ? 'Pending' : ch.return_time.strftime('%b %e, %l:%M %p')%></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
