@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150120033432) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "film_checkouts", force: true do |t|
     t.datetime "checkout_time"
     t.datetime "return_time"
